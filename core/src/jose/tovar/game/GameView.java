@@ -163,42 +163,10 @@ public class GameView
         return move.isCompleteMove() && move.isBoardPosition(game.getBoard().getSize()) &&
                 game.getBoard().getPosition(move.getInitialPosition())!=null &&
                 game.getBoard().getPosition(move.getInitialPosition()).getColor() == game.getTurn() &&
-                move.areDifferentPositions()
+                move.areDifferentPositions() &&
+                (game.getBoard().isKingMove(move) || game.getBoard().isWarriorMove(move))
                 ;
     }
-
-//    public boolean clickInEmptyTile(Game game, Move move)
-//    {
-//        return !move.isEmptyMove() && move.isNotCompleteMove() && game.getBoard().getPosition(move.getInitialPosition())== null;
-//    }
-
-//    private boolean isValidPosition(Game game, Vector3 touchPosition)
-//    {
-//        int boardSize = game.getBoard().getSize();
-//        Position boardPosition = boardPosition(boardSize);
-//
-//        return ( touchPosition.x >= boardPosition.getRow() && touchPosition.y >= boardPosition.getColumn() )
-//                && (touchPosition.x < boardPosition.getRow()+boardHeigth(boardSize)
-//                && touchPosition.y <  boardPosition.getColumn()+boardWidth(boardSize) );
-//    }
-
-//    private boolean isValidPosition(/*Game game,*/int boardSize, Position position)
-//    {
-////        int boardSize = game.getBoard().getSize();
-//        Position boardPosition = boardPosition(boardSize);
-//
-//        return  ( position.getRow() >= boardPosition.getRow() && position.getColumn() >= boardPosition.getColumn() ) &&
-//                (position.getRow() < boardPosition.getRow()+boardHeigth(boardSize) &&  position.getColumn() <  boardPosition.getColumn()+boardWidth(boardSize) );
-//    }
-
-//    private boolean isValidPosition2(Game game, Position position)
-//    {
-//        int boardSize = game.getBoard().getSize();
-//
-//        return ( position.getRow() >= 0 && position.getColumn() >= 0 ) &&
-//                ( position.getRow() < boardSize &&  position.getColumn() < boardSize );
-//    }
-
 
     public void disposeGameView()
     {

@@ -56,6 +56,11 @@ public class Game
         drawGame();
     }
 
+    public boolean gameOver()
+    {
+        return board.whiteWarriorWinGame() || board.blackWarriorWinGame();
+    }
+
     public void disposeGame()
     {
         gameView.disposeGameView();
@@ -63,7 +68,7 @@ public class Game
 
     private void updateGame()
     {
-        if(gameView.isValidMove(this,move))
+        if(!gameOver() && gameView.isValidMove(this,move))
         {
             if(move.isTowerMove() && board.isEmptyPath(move))
             {
